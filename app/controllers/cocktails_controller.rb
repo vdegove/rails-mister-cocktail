@@ -17,19 +17,6 @@ class CocktailsController < ApplicationController
     redirect_to cocktails_path
   end
 
-  def edit
-  end
-
-  def update
-    @cocktail.update(cocktail_params)
-    redirect_to cocktail_path(@cocktail)
-  end
-
-  def destroy
-    @cocktail.destroy
-    redirect_to cocktails_path
-  end
-
   private
 
   def cocktail_params

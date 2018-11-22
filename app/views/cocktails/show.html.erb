@@ -5,10 +5,7 @@
 <ul>
 
 <% @cocktail.doses.each do |dose| %>
-  <li><%= dose.ingredient.name %>: <%= dose.description %>. <%= link_to "(Remove)", cocktail_dose_path(dose), method: :delete %></li>
+  <li><%= dose.ingredient.name %>: <%= dose.description %>. <%= link_to "(Remove)", dose_path(dose), method: :delete %></li>
 <% end %>
 </ul>
-  <%= link_to('Back to cocktail list', cocktails_path) %> | <%= link_to('Edit cocktail name', edit_cocktail_path(@cocktail)) %> | <%= link_to('Add a new ingredient to the recipe', new_cocktail_dose_path(@cocktail)) %>
-
- | <%= link_to('Remove cocktail', cocktail_path(@cocktail), method: :delete,
-      data: { confirm: "Are you sure?" }) %>
+  <%= link_to('Back to cocktail list', cocktails_path) %> | <%= link_to('Add a new ingredient to the recipe', new_cocktail_dose_path(@cocktail)) %>
