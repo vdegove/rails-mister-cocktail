@@ -1,0 +1,9 @@
+<h1>Add a new dose for <%= @cocktail.name %></h1>
+
+<% ingredient_list = @ingredients.map { |ingredient| [ingredient.name, ingredient.id] } %>
+
+<%= simple_form_for [@cocktail, @dose] do |f| %>
+<%= f.input :ingredient_id, label: "Ingredient", collection: ingredient_list %>
+<%= f.input :description %>
+<%= f.submit %>
+<% end %>
