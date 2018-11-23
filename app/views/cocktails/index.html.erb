@@ -1,13 +1,32 @@
 <h1>Cocktails</h1>
 
-<ul>
+<div class="flexbox">
+  <% @cocktails.each do |cocktail| %>
 
-<% @cocktails.each do |cocktail| %>
+  <div class="cocktail-card">
 
-<li><%= link_to(cocktail.name, cocktail_path(cocktail)) %></li>
+  <%= link_to(cocktail_path(cocktail)) do %>
+  <div class="card-top">
+  <h2 class="card-title"><%= cocktail.name %></h2>
+  <hr>
+  <ul>
+    <% cocktail.doses.each do |dose| %>
+      <li><%= dose.ingredient.name %>: <%= dose.description %>.</li>
+    <% end %>
+  </ul>
+  </div>
+  <%= cl_image_tag cocktail.photo, height: 200, width: 200, crop: :fill, class: "card-photo" %>
+  <% end %>
 
-<% end %>
 
-</ul>
+  </div>
+
+  <% end %>
+
+</div>
+
+
+
+
 
 <%= link_to 'Add a new cocktail', new_cocktail_path %>

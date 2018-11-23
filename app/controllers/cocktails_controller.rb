@@ -8,6 +8,14 @@ class CocktailsController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
+  def update
+    @cocktail.update(cocktail_params)
+    redirect_to cocktail_path(@cocktail)
+  end
+
   def new
     @cocktail = Cocktail.new
   end
